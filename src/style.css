@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow:400,700|Barlow+Semi+Condensed|Roboto:400,600,700&amp;display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css');
+
+@import './buttons.css';
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;

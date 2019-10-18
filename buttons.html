@@ -1,0 +1,175 @@
+---
+layout: default
+---
+<!-- DEFAULT / PRIMARY -->
+<div class="container p-4">
+    <button class="
+      primary
+
+      btn
+    ">
+        <span>Primary</span>
+    </button>
+  </div>
+
+  <!-- DEFAULT / SECONDARY -->
+  <div class="container p-4">
+    <button class="
+      secondary
+      bg-hcs-blue
+      hover:bg-hcs-blue-t-40
+      text-white
+
+      btn
+    ">
+        <span>Secondary</span>
+    </button>
+  </div>
+
+  <!-- DEFAULT / SECONDARY -->
+  <div class="container p-4">
+      <button class="
+        secondary
+        bg-hcs-dark-teal
+        hover:bg-hcs-dark-teal-t-40
+        text-white
+
+        btn
+      ">
+          <span>Secondary</span>
+      </button>
+    </div>
+
+    <pre>
+      <code class="language-html">
+      &lt;button class="primary btn"&gt;
+          &lt;span&gt;Primary&lt;/span&gt;
+      &lt;/button&gt;
+      </code>
+    </pre>
+
+
+
+
+  <!-- DEFAULT / DISABLED -->
+  <div class="container p-4">
+    <button disabled class="
+      bg-ui-medium-gray
+
+      btn
+    ">
+        <span>This Button Is Disabled</span>
+    </button>
+  </div>
+
+
+  <pre>
+    <code class="language-html">
+    &lt;button disabled class="bg-ui-medium-gray btn"&gt;
+        &lt;span&gt;This Button Is Disabled&lt;/span&gt;
+    &lt;/button&gt;
+    </code>
+  </pre>
+
+  <!-- 2 - STAGE / CONFIRM -->
+  <div class="container p-4">
+    <button class="
+      confirm
+      negative
+      staged
+      bg-hcs-warm-red
+
+      btn
+    ">
+        <span class="
+          absolute
+          left-0
+        ">
+          <i class="
+            fas
+            fa-exclamation-triangle
+          ">
+          </i>
+          &nbsp;
+          Are you sure?
+        </span>
+        <span>Something Wicked This Way Comes</span>
+    </button>
+  </div>
+
+
+  <pre>
+    <code class="language-html">
+    &lt;button class="confirm negative staged bg-hcs-warm-red btn"&gt;
+      &lt;span class="absolute left-0"&gt;
+        &lt;i class="fas fa-exclamation-triangle"&gt;&lt;/i&gt;
+        &nbsp;Are you sure?
+      &lt;/span&gt;
+      &lt;span&gt;Something Wicked This Way Comes&lt;/span&gt;
+    &lt;/button&gt;
+    </code>
+  </pre>
+
+
+
+
+  <!-- 2 - STAGE / WAIT -->
+  <div class="container p-4">
+    <button class="
+      wait
+      staged
+      secondary
+      bg-hcs-blue
+
+      btn
+    ">
+        <span class="
+          absolute
+          left-0
+        ">
+          <i class="
+            fas
+            fa-spinner
+            fa-pulse
+          "></i>
+        </span>
+        <span>Does Something After</span>
+    </button>
+  </div>
+
+  <pre>
+    <code class="language-html">
+    &lt;button class="wait staged secondary bg-hcs-blue btn"&gt;
+      &lt;span class="absolute left-0"&gt;
+        &lt;i class="fas fa-spinner fa-pulse"&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;span&gt;Does Something After&lt;/span&gt;
+    &lt;/button&gt;
+    </code>
+  </pre>
+
+<script>
+document.querySelector('button.wait').addEventListener('click', function(e) {
+
+  document.querySelector('button.wait').classList.toggle("waiting");
+
+  setTimeout(
+    function() {
+      document.querySelector('button.wait').classList.remove("waiting");
+    }
+  , 2000);
+
+});
+
+document.querySelector('button').addEventListener('click', function(e) {
+
+  document.querySelector('button.wait').classList.remove("waiting");
+
+});
+
+document.querySelector('button.confirm').addEventListener('click', function(e) {
+
+  document.querySelector('button.confirm').classList.toggle("waiting");
+
+});
+</script>

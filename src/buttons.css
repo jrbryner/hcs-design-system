@@ -1,0 +1,48 @@
+.btn {
+  @apply
+    h-8
+    pl-6
+    pr-6
+    font-semibold
+    rounded-lg
+    text-base
+    relative
+    overflow-hidden
+    text-white
+    bg-hcs-green;
+  transition: all 200ms ease-in-out;
+
+  &:hover {
+    @apply bg-hcs-green-s-20;
+  }
+
+  &:focus {
+    @apply outline-none shadow-outline;
+  }
+
+	span {
+    @apply inline-block w-full h-full leading-loose;
+		transition: all 200ms ease-in-out;
+	}
+}
+
+.btn.staged span {
+	&:first-child {
+		transform: translateY(-100%);
+	}
+}
+
+.btn.staged.waiting {
+
+	span:first-child {
+		transform: translateY(0);
+	}
+
+	span:last-child {
+		transform: translateY(200%);
+	}
+}
+
+.btn.wait.waiting {
+  @apply pointer-events-none bg-hcs-dark-teal;
+}
