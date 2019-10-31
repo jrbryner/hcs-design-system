@@ -1,0 +1,101 @@
+.hcs-toggle {
+  --component-width:    2.5rem;
+  --dot-width:          1rem;
+  --active-text-effect: 0 0 1px currentColor;
+
+  /* The text "labels" */
+  span {
+      @apply inline-block whitespace-no-wrap text-xs text-hcs-blue uppercase leading-snug;
+
+      /* Using text-shaow vs font-weight so that the rest of the component's position is not affected */
+      &.label--off {
+          text-shadow: var(--active-text-effect);
+      }
+
+      &:last-on {
+          text-shadow: none;
+      }
+  }
+
+  /* Input is hidden
+     label is the background of the component
+     :after is the dot
+     Default is toggle "off */
+  label {
+    width:      var(--component-width);
+    padding:    2px;
+    transition: all .4s ease;
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
+
+    /* This is the dot that moves */
+    &::after {
+      @apply relative block rounded-full bg-white;
+
+      content:    "";
+      width:      var(--dot-width);
+      height:     var(--dot-width);
+      box-sizing: content-box;
+
+      transition:
+        transform .25s cubic-bezier(
+          0.175, 0.885, 0.320, 1.25
+        ),
+        padding .3s ease,
+        margin .3s ease;
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,.1),
+        0 0 3px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  /* Toggle "on" */
+  input:checked + label {
+      @apply bg-hcs-blue;
+
+      /* Move the dot over */
+      &::after {
+        transform: translateX(calc(var(--component-width) / 2));
+      }
+
+      /* Swap the highlighted active label text */
+      & ~ .label--off {
+        text-shadow: none;
+      }
+      & ~ .label--on {
+        text-shadow: var(--active-text-effect);
+      }
+  }
+
+  /* Disabled
+     Default toggle "off" */
+  input:disabled ~ span {
+    @apply text-hcs-gray-t-20;
+  }
+
+  input:disabled + label {
+    @apply bg-ui-light-gray;
+
+    &::after {
+      @apply bg-ui-light-gray;
+    }
+  }
+
+  /* Disabled
+     Toggle "on" */
+  input:checked:disabled + label {
+    @apply bg-hcs-gray-t-80;
+
+    /* Move the dot over */
+    &::after {
+      transform: translateX(calc(var(--component-width) / 2));
+    }
+
+    /* Swap the highlighted active label text */
+    & ~ .label--off {
+      text-shadow: none;
+    }
+    & ~ .label--on {
+      text-shadow: var(--active-text-effect);
+    }
+  }
+}

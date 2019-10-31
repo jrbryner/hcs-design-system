@@ -11,6 +11,7 @@ import atimport from "postcss-import";
 import tailwindcss from "tailwindcss";
 import precss from "precss";
 import colorFunction from "postcss-color-function";
+import cssvariables from "postcss-css-variables";
 
 
 const rawStylesheet = "src/style.css";
@@ -46,6 +47,7 @@ task("buildJekyll", () => {
 
   if (devBuild) {
     args.push("--incremental");
+    args.push("--trace");
   }
 
   return spawn("bundle", args, { stdio: "inherit" });
@@ -55,7 +57,7 @@ task("processStyles", done => {
   browserSync.notify("Compiling styles...");
 
   return src(rawStylesheet)
-    .pipe(postcss([atimport(), tailwindcss(tailwindConfig), colorFunction(), precss()]))
+    .pipe(postcss([atimport(), tailwindcss(tailwindConfig), colorFunction(), precss(), cssvariables()]))
     .pipe(gulpif(devBuild, sourcemaps.init()))
     .pipe(
       gulpif(
@@ -92,7 +94,7 @@ task("startServer", () => {
   watch(
     [
       "**/*.css",
-      "**/*.html",
+      "**/**/*.html",
       "**/*.js",
       "**/*.md",
       "**/*.markdown",

@@ -123,11 +123,15 @@ module.exports = {
       'ui-dark-gray':     '#484848',
       'ui-bg':            '#FAFAFA',
       'black':            '#000',
-      'white':            '#fff'
+      'white':            '#fff',
+      'transparent':      'transparent'
     },
     extend: {
       boxShadow: {
         outline: '0 0 0 2px rgba(0,82,111,0.5)'
+      },
+      borderWidth: {
+        '3' : '3px'
       }
     },
   },

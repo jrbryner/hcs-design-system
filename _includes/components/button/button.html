@@ -1,0 +1,15 @@
+<button class="
+  btn
+  {{ include.class }}
+  {{ include.bg-color }}
+  {{ include.bg-hover }}
+  {{ include.text-color }}
+  {% if include.stage-value %}staged{% endif %}
+" {% if include.class contains "disabled" %}disabled{% endif %}>
+  {% if include.stage-value %}
+  <span class="absolute left-0">
+    {{ include.stage-value }}
+  </span>
+  {% endif %}
+  <span>{{ include.value }}</span>
+</button>

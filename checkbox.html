@@ -1,0 +1,79 @@
+---
+layout: default
+---
+<!-- DEFAULT / PRIMARY -->
+
+<div class="container p-4">
+  <h2>Default</h2>
+  {% include components/checkbox/checkbox.html id="cb1" %}
+</div>
+<div class="container p-4">
+  <h2>Disabled</h2>
+  {% include components/checkbox/checkbox.html id="cb3" disabled="disabled" %}
+  {% include components/checkbox/checkbox.html id="cb4" disabled="disabled" checked="checked" %}
+
+</div>
+<div class="container p-4">
+  <h2>Indeterminate</h2>
+  {% include components/checkbox/checkbox.html id="cb5" indeterminate="indeterminate" checked="checked" %}
+</div>
+
+
+
+<pre>
+  <code class="language-html">
+
+    &lt;div class="hcs-checkbox relative inline-block mb-2 "&gt;
+      &lt;input
+        id="123"
+        type="checkbox"
+        class="hidden"
+        value=""
+      /&gt;
+      &lt;label
+        class="
+          bg-white
+          w-full
+          h-full
+          cursor-pointer
+          absolute
+          rounded
+          flex
+          items-center
+          justify-center
+        "
+        for="{123"
+      &gt;&lt;/label&gt;
+    &lt;/div&gt;
+
+
+  </code>
+
+  <code class="language-html">
+
+    &lt;div class="hcs-checkbox relative inline-block indeterminate"&gt;
+      &lt;input
+        id="123"
+        type="checkbox"
+        class="hidden"
+        value=""
+      /&gt;
+      &lt;label
+        class="
+          bg-white
+          w-full
+          h-full
+          cursor-pointer
+          absolute
+          rounded
+          flex
+          items-center
+          justify-center
+        "
+        for="{123"
+      &gt;&lt;/label&gt;
+    &lt;/div&gt;
+
+
+    </code>
+</pre>

@@ -20,19 +20,61 @@
     @apply outline-none shadow-outline;
   }
 
-	span {
+  &.secondary {
+    @apply bg-hcs-dark-teal;
+
+    &:hover {
+      @apply bg-hcs-dark-teal-s-40;
+    }
+  }
+
+  &.negative {
+    @apply bg-hcs-warm-red;
+
+    &:hover {
+      @apply bg-hcs-warm-red-s-20;
+    }
+  }
+
+  &.small {
+    @apply
+      h-6
+      pl-4
+      pr-4
+      text-sm;
+
+    > span {
+      line-height: 1.5rem;
+    }
+  }
+
+  &.disabled,
+  [disabled="*"],
+  :disabled {
+    @apply bg-ui-medium-gray;
+
+    &.primary {
+      @apply bg-hcs-green-t-40;
+    }
+
+    &.secondary {
+      @apply bg-hcs-dark-teal-t-40;
+    }
+  }
+
+	> span {
     @apply inline-block w-full h-full leading-loose;
 		transition: all 200ms ease-in-out;
 	}
 }
 
-.btn.staged span {
+.btn.staged > span {
 	&:first-child {
 		transform: translateY(-100%);
 	}
 }
 
-.btn.staged.waiting {
+.btn.waiting {
 
 	span:first-child {
 		transform: translateY(0);
@@ -43,6 +85,7 @@
 	}
 }
 
+// Demo purposes only
 .btn.wait.waiting {
   @apply pointer-events-none bg-hcs-dark-teal;
 }
