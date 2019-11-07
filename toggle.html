@@ -5,41 +5,43 @@ layout: default
 
 <div class="container p-4">
   <h2>Default</h2>
-  {% include components/toggle/toggle.html id="toggle1" %}
+  {% include components/toggle/toggle.hbs id="toggle1" %}
+  {% include components/checkbox/checkbox.hbs %}
 </div>
 <div class="container p-4">
   <h2>Disabled</h2>
-  {% include components/toggle/toggle.html id="toggle2" disabled="true" off-label="This is off" on-label="This is on"%}
-  {% include components/toggle/toggle.html id="toggle3" disabled="true" checked="true" %}
+  {% include components/toggle/toggle.hbs id="toggle2" disabled="true" off-label="This is off" on-label="This is on"%}
+  {% include components/toggle/toggle.hbs id="toggle3" disabled="true" checked="true" %}
 </div>
 
 <pre>
   <code class="language-html">
-    &lt;div class="hcs-toggle flex mb-2 inline-block"&gt;
-      &lt;input
-        class="hidden"
-        id="123"
-        type="checkbox"
-        disabled="disabled"
-        checked="checked"
-      /&gt;
-      &lt;label
-        class="
-          relative
-          inline-block
-          outline-none
-          rounded-full
-          cursor-pointer
-          select-none
-          align-middle
-          bg-grey-lightest
-          border-none
-          active:shadow-none"
-        for="123"
-      &gt;
-      &lt;/label&gt;
-      &lt;span class="label--off order-first mr-3"&gt;Off&lt;/span&gt;&lt;!-- Optional --&gt;
-      &lt;span class="label--on ml-3"&gt;On&lt;/span&gt;&lt;!-- Optional --&gt;
-    &lt;/div&gt;
+    &lt;label class="hcs-field toggle mb-2 mr-4 inline-block"&gt;
+      &lt;div class="flex"
+        &lt;input
+          class="hidden"
+          type="checkbox"
+          disabled="disabled"
+          checked="checked"
+        /&gt;
+        &lt;span
+          class="
+            relative
+            inline-block
+            outline-none
+            rounded-full
+            cursor-pointer
+            select-none
+            align-middle
+            bg-grey-lightest
+            border-none
+            active:shadow-none
+          "
+        &gt;
+        &lt;/span&gt;
+        &lt;sub class="label--off order-first mr-3"&gt;Off&lt;/sub&gt;&lt;!-- Optional --&gt;
+        &lt;sub class="label--on ml-3"&gt;On&lt;/sub&gt;&lt;!-- Optional --&gt;
+      &lt;/div&gt;
+    &lt;/label&gt;
   </code>
 </pre>

@@ -4,12 +4,12 @@ layout: default
 <!-- DEFAULT / PRIMARY -->
 
 <div class="container p-4">
-  {% include components/button/button.html value="Primary" %}
-  {% include components/button/button.html value="Secondary" class="secondary" %}
+  {% include components/button/button.hbs value="Primary" %}
+  {% include components/button/button.hbs value="Secondary" class="secondary" %}
 
-  {% include components/button/button.html value="Disabled" class="disabled" %}
-  {% include components/button/button.html value="Disabled" class="disabled primary" %}
-  {% include components/button/button.html value="Disabled" class="disabled secondary" %}
+  {% include components/button/button.hbs value="Disabled" class="disabled" %}
+  {% include components/button/button.hbs value="Disabled" class="disabled primary" %}
+  {% include components/button/button.hbs value="Disabled" class="disabled secondary" %}
 </div>
 
 <!-- DEFAULT / SECONDARY -->
@@ -19,12 +19,12 @@ layout: default
 
 <!-- DEFAULT / SECONDARY -->
 <div class="container p-4">
-  {% include components/button/button.html value="Small" class="small" %}
-  {% include components/button/button.html value="Secondary" class="secondary small" %}
+  {% include components/button/button.hbs value="Small" class="small" %}
+  {% include components/button/button.hbs value="Secondary" class="secondary small" %}
 
-  {% include components/button/button.html value="Disabled" class="disabled small" %}
-  {% include components/button/button.html value="Disabled" class="disabled primary small" %}
-  {% include components/button/button.html value="Disabled" class="disabled secondary small" %}
+  {% include components/button/button.hbs value="Disabled" class="disabled small" %}
+  {% include components/button/button.hbs value="Disabled" class="disabled primary small" %}
+  {% include components/button/button.hbs value="Disabled" class="disabled secondary small" %}
 </div>
 
 <pre>
@@ -46,7 +46,7 @@ layout: default
 
   <!-- 2 - STAGE / CONFIRM -->
 <div class="container p-4">
-  {% include components/button/button.html
+  {% include components/button/button.hbs
     value="Something Wicked This Way Comes"
     stage-value='<i class="fas fa-exclamation-triangle"></i>&nbsp;Are you sure?'
     class="negative confirm"
@@ -72,7 +72,7 @@ layout: default
 
 <!-- 2 - STAGE / WAIT -->
 <div class="container p-4">
-  {% include components/button/button.html
+  {% include components/button/button.hbs
     value="Does Something After"
     stage-value='<i class="fas fa-spinner fa-pulse"></i>'
     class="secondary wait"

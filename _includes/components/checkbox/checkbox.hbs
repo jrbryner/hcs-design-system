@@ -1,0 +1,32 @@
+<label
+  class="
+    hcs-field
+    checkbox
+    relative
+    inline-block
+    mb-2
+    mr-4
+    {% if include.indeterminate %}indeterminate{% endif %}
+  ">
+  <input
+    type="checkbox"
+    class="hidden"
+    {% if include.disabled %}disabled="disabled"{% endif %}
+    {% if include.checked %}checked="checked"{% endif %}
+    value=""
+  />
+  <span
+    class="
+      bg-white
+      cursor-pointer
+      relative
+      rounded
+      inline-block
+      mr-1
+      align-middle
+    "
+  ></span>
+  <sub>
+  {% if include.label-text %}{{include.label-text}}{% else %}Label{% endif %}
+  </sub>
+</label>

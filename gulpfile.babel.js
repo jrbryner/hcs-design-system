@@ -2,10 +2,11 @@ import autoprefixer from "autoprefixer";
 import browserSync from "browser-sync";
 import { spawn } from "child_process";
 import cssnano from "cssnano";
-import { dest, series, src, task, watch } from "gulp";
+import { dest, series, src, task, watch} from "gulp";
 import gulpif from "gulp-if";
 import postcss from "gulp-postcss";
 import purgecss from "gulp-purgecss";
+import rename from "gulp-rename";
 import sourcemaps from "gulp-sourcemaps";
 import atimport from "postcss-import";
 import tailwindcss from "tailwindcss";
@@ -14,7 +15,8 @@ import colorFunction from "postcss-color-function";
 import cssvariables from "postcss-css-variables";
 
 
-const rawStylesheet = "src/style.css";
+
+const rawStylesheet = "src/style.pcss";
 const siteRoot = "_site";
 const cssRoot = `${siteRoot}/assets/css/`;
 const vendor  = `${siteRoot}/vendor/`;
@@ -59,22 +61,23 @@ task("processStyles", done => {
   return src(rawStylesheet)
     .pipe(postcss([atimport(), tailwindcss(tailwindConfig), colorFunction(), precss(), cssvariables()]))
     .pipe(gulpif(devBuild, sourcemaps.init()))
-    .pipe(
-      gulpif(
-        !devBuild,
-        new purgecss({
-          content: ["_site/**/*.html"],
-          extractors: [
-            {
-              extractor: TailwindExtractor,
-              extensions: ["html", "js"]
-            }
-          ]
-        })
-      )
-    )
+    // .pipe(
+    //   gulpif(
+    //     !devBuild,
+    //     new purgecss({
+    //       content: ["_site/**/*.html"],
+    //       extractors: [
+    //         {
+    //           extractor: TailwindExtractor,
+    //           extensions: ["html", "js"]
+    //         }
+    //       ]
+    //     })
+    //   )
+    // )
     .pipe(gulpif(!devBuild, postcss([autoprefixer(), cssnano()])))
     .pipe(gulpif(devBuild, sourcemaps.write("")))
+    .pipe(rename('style.css'))
     .pipe(dest(cssRoot));
 });
 
@@ -93,8 +96,9 @@ task("startServer", () => {
 
   watch(
     [
-      "**/*.css",
-      "**/**/*.html",
+      "**/*.pcss",
+      "**/*.html",
+      "**/*.hbs",
       "**/*.js",
       "**/*.md",
       "**/*.markdown",
