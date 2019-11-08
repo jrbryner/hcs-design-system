@@ -41,6 +41,22 @@
     }
   }
 
+  &.small {
+    --component-width: 1rem;
+
+    input + span {
+      width: var(--component-width);
+      height: var(--component-width);
+
+      &::after {
+        @apply border-b-2 border-l-2;
+        width: calc(var(--component-width) / 2);
+        height: calc(var(--component-width) / 3);
+        transform: rotate(-45deg) translate(0, 120%);
+      }
+    }
+  }
+
   /* Indeterminate
      applied by class on container  */
   &.indeterminate input + span {

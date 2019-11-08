@@ -1,26 +1,24 @@
-<label class="hcs-field toggle mb-2 mr-4 inline-block">
-  <div class="flex">
-    <input
-      class="hidden"
-      type="checkbox"
-      {% if include.disabled %}disabled="disabled"{% endif %}
-      {% if include.checked %}checked="checked"{% endif %}
-    />
-    <span
-      class="
-        relative
-        inline-block
-        outline-none
-        rounded-full
-        cursor-pointer
-        select-none
-        align-middle
-        bg-grey-lightest
-        border-none
-        active:shadow-none"
-    >
-    </span>
-    <sub class="label--off order-first mr-3">{% if include.off-label %}{{include.off-label}}{% else %}Off{% endif %}</sub><!-- Optional -->
-    <sub class="label--on ml-3">{% if include.on-label %}{{include.on-label}}{% else %}On{% endif %}</sub><!-- Optional -->
-  </div>
+<label class="hcs-field toggle mb-2 mr-4 inline-flex">
+  <input
+    class="hidden"
+    type="checkbox"
+    {% if include.disabled %}disabled="disabled"{% endif %}
+    {% if include.checked %}checked="checked"{% endif %}
+  />
+  <span
+    class="
+      relative
+      inline-block
+      outline-none
+      rounded-full
+      cursor-pointer
+      select-none
+      align-middle
+      bg-grey-lightest
+      border-none
+      active:shadow-none"
+  >
+  </span>
+  <span class="label--off option-label order-first mr-3">{% if include.off-label %}{{include.off-label}}{% else %}Off{% endif %}</span><!-- Optional -->
+  <span class="label--on option-label ml-3">{% if include.on-label %}{{include.on-label}}{% else %}On{% endif %}</span><!-- Optional -->
 </label>

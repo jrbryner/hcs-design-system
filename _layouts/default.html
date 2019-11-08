@@ -3,11 +3,11 @@
 
 {% include header.html %}
 
-<main class="flex h-full w-full">
-  <section class="bg-white w-full min-h-screen">
+<main class="flex min-h-screen w-full overflow-hidden">
+  <section class="bg-white w-full min-h-screen p-12 min-h-screen h-screen  overflow-y-auto">
     {{ content }}
   </section>
-  <aside class="md:order-first text-white bg-black w-1/4 h-full min-h-screen ">
+  <aside class="md:order-first text-white bg-hcs-dark-teal-s-40 w-1/4 min-h-screen h-screen p-6 overflow-y-auto">
     {% include side.html %}
   </aside>
 </main>

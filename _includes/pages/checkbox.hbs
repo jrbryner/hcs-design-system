@@ -1,0 +1,87 @@
+<!-- DEFAULT / PRIMARY -->
+
+<div class="container p-4">
+  <h3>Default</h3>
+  {% include components/checkbox/checkbox.hbs %}
+</div>
+<div class="container p-4">
+  <h3>Disabled</h3>
+  {% include components/checkbox/checkbox.hbs disabled="disabled" %}
+  {% include components/checkbox/checkbox.hbs disabled="disabled" checked="checked" %}
+
+</div>
+<div class="container p-4">
+  <h3>Indeterminate</h3>
+  {% include components/checkbox/checkbox.hbs indeterminate="indeterminate" checked="checked" %}
+</div>
+
+<div class="container p-4">
+  <h3>Small</h3>
+  {% include components/checkbox/checkbox.hbs small="small" %}
+  {% include components/checkbox/checkbox.hbs small="small" disabled="disabled" %}
+  {% include components/checkbox/checkbox.hbs small="small" indeterminate="indeterminate" checked="checked"%}
+</div>
+
+
+
+
+<pre>
+<code class="language-html">
+&lt;label class="
+  hcs-field
+  checkbox
+  relative
+  inline-block
+  mb-2
+  mr-4
+"&gt;
+  &lt;input
+    type="checkbox"
+    class="hidden"
+    value=""
+  /&gt;
+  &lt;span
+    class="
+      bg-white
+      cursor-pointer
+      relative
+      rounded
+      inline-block
+      mr-1
+      align-middle
+    "
+  &gt;&lt;/span&gt;
+  &lt;/sub&gt;Label Text&lt;/label&gt;
+&lt;/label&gt;
+</code>
+
+<code class="language-html">
+&lt;label class="
+  hcs-field
+  checkbox
+  relative
+  inline-block
+  mb-2
+  mr-4
+  indeterminate
+"&gt;
+  &lt;input
+    type="checkbox"
+    class="hidden"
+    value=""
+  /&gt;
+  &lt;span
+    class="
+      bg-white
+      cursor-pointer
+      relative
+      rounded
+      inline-block
+      mr-1
+      align-middle
+    "
+  &gt;&lt;/span&gt;
+  &lt;span class="option-label"&gt;Label Text&lt;/span&gt;
+&lt;/label&gt;
+</code>
+</pre>

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow:400,600,700|Barlow+Semi+Condensed|Roboto:400,600,700&amp;display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css');
+
+@import '../../_includes/components/button/buttons.pcss';
+@import '../../_includes/components/toggle/toggle.pcss';
+@import '../../_includes/components/checkbox/checkbox.pcss';
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+
+strong,
+b {
+  font-weight: 600;
+}
+
+.option-label {
+  /* text-hcs-blue */
+  @apply
+    text-ui-contrast-gray
+    inline-block
+    whitespace-no-wrap
+    text-xs
+    text-hcs-gray-t-10
+    uppercase
+    leading-snug
+    bottom-auto
+    align-middle;
+}
+
+
+h1,
+h2 {
+  @apply font-display font-normal leading-normal text-hcs-blue;
+}
+h1 {
+  @apply text-4xl;
+}
+h2 {
+  @apply text-2xl;
+}
+h3 {
+  @apply font-display leading-normal text-hcs-gray text-xl;
+}

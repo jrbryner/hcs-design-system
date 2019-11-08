@@ -4,7 +4,7 @@
   --active-text-effect: 0 0 1px currentColor;
 
   /* The text "labels" */
-  div sub {
+  .option-label {
       @apply text-hcs-blue;
 
       /* Using text-shaow vs font-weight so that the rest of the component's position is not affected */
@@ -21,7 +21,7 @@
      label is the background of the component
      :after is the dot
      Default is toggle "off */
-  span {
+  input + span {
     width:      var(--component-width);
     padding:    2px;
     transition: all .4s ease;
@@ -68,7 +68,7 @@
 
   /* Disabled
      Default toggle "off" */
-  input:disabled ~ sub {
+  input:disabled ~ .option-label {
     @apply text-hcs-gray-t-20;
   }
 

@@ -12,3 +12,10 @@ exclude:
   - README.md
   - src
   - tailwind.config.js
+
+collections:
+  pages:
+    output: true
+    permalink: /:path
+
+permalink: pretty

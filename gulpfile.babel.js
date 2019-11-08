@@ -16,10 +16,10 @@ import cssvariables from "postcss-css-variables";
 
 
 
-const rawStylesheet = "src/style.pcss";
+const rawStylesheet = "src/**/*.pcss";
 const siteRoot = "_site";
-const cssRoot = `${siteRoot}/assets/css/`;
 const vendor  = `${siteRoot}/vendor/`;
+const assets  = `${siteRoot}/assets/`;
 const tailwindConfig = "tailwind.config.js";
 
 const devBuild =
@@ -40,6 +40,10 @@ class TailwindExtractor {
 task("copyVendor", () => {
   return src('src/vendor/*')
     .pipe(dest(vendor));
+});
+task("copyAssets", () => {
+  return src('src/assets/**/*')
+    .pipe(dest(assets));
 });
 
 task("buildJekyll", () => {
@@ -77,8 +81,10 @@ task("processStyles", done => {
     // )
     .pipe(gulpif(!devBuild, postcss([autoprefixer(), cssnano()])))
     .pipe(gulpif(devBuild, sourcemaps.write("")))
-    .pipe(rename('style.css'))
-    .pipe(dest(cssRoot));
+    .pipe(rename(function(path) {
+      path.extname = ".css";
+    }))
+    .pipe(dest(assets));
 });
 
 task("startServer", () => {
@@ -96,6 +102,7 @@ task("startServer", () => {
 
   watch(
     [
+      "**/*.css",
       "**/*.pcss",
       "**/*.html",
       "**/*.hbs",
@@ -110,7 +117,7 @@ task("startServer", () => {
   );
 });
 
-const buildSite = series("buildJekyll", "processStyles", "copyVendor");
+const buildSite = series("buildJekyll", "processStyles", "copyVendor", "copyAssets");
 
 exports.serve = series(buildSite, "startServer");
 exports.default = series(buildSite);

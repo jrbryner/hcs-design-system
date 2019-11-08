@@ -1,9 +1,7 @@
----
-layout: default
----
 <!-- DEFAULT / PRIMARY -->
 
 <div class="container p-4">
+  <h3>Default</h3>
   {% include components/button/button.hbs value="Primary" %}
   {% include components/button/button.hbs value="Secondary" class="secondary" %}
 
@@ -12,13 +10,11 @@ layout: default
   {% include components/button/button.hbs value="Disabled" class="disabled secondary" %}
 </div>
 
-<!-- DEFAULT / SECONDARY -->
-<div class="container p-4">
-
-</div>
 
 <!-- DEFAULT / SECONDARY -->
 <div class="container p-4">
+  <h3>Small</h3>
+
   {% include components/button/button.hbs value="Small" class="small" %}
   {% include components/button/button.hbs value="Secondary" class="secondary small" %}
 
@@ -28,20 +24,20 @@ layout: default
 </div>
 
 <pre>
-  <code class="language-html">
-  &lt;button class="primary btn"&gt;
-      &lt;span&gt;Primary&lt;/span&gt;
-  &lt;/button&gt;
-  </code>
+<code class="language-html">
+&lt;button class="primary btn"&gt;
+    &lt;span&gt;Primary&lt;/span&gt;
+&lt;/button&gt;
+</code>
 </pre>
 
 
 <pre>
-  <code class="language-html">
-  &lt;button disabled class="bg-ui-medium-gray btn"&gt;
-      &lt;span&gt;This Button Is Disabled&lt;/span&gt;
-  &lt;/button&gt;
-  </code>
+<code class="language-html">
+&lt;button disabled class="bg-ui-medium-gray btn"&gt;
+    &lt;span&gt;This Button Is Disabled&lt;/span&gt;
+&lt;/button&gt;
+</code>
 </pre>
 
   <!-- 2 - STAGE / CONFIRM -->
@@ -56,15 +52,15 @@ layout: default
 
 
 <pre>
-  <code class="language-html">
-  &lt;button class="confirm negative staged bg-hcs-warm-red btn"&gt;
-    &lt;span class="absolute left-0"&gt;
-      &lt;i class="fas fa-exclamation-triangle"&gt;&lt;/i&gt;
-      &nbsp;Are you sure?
-    &lt;/span&gt;
-    &lt;span&gt;Something Wicked This Way Comes&lt;/span&gt;
-  &lt;/button&gt;
-  </code>
+<code class="language-html">
+&lt;button class="confirm negative staged bg-hcs-warm-red btn"&gt;
+  &lt;span class="absolute left-0"&gt;
+    &lt;i class="fas fa-exclamation-triangle"&gt;&lt;/i&gt;
+    &nbsp;Are you sure?
+  &lt;/span&gt;
+  &lt;span&gt;Something Wicked This Way Comes&lt;/span&gt;
+&lt;/button&gt;
+</code>
 </pre>
 
 
@@ -80,14 +76,14 @@ layout: default
 </div>
 
 <pre>
-  <code class="language-html">
-  &lt;button class="wait staged secondary bg-hcs-blue btn"&gt;
-    &lt;span class="absolute left-0"&gt;
-      &lt;i class="fas fa-spinner fa-pulse"&gt;&lt;/i&gt;
-    &lt;/span&gt;
-    &lt;span&gt;Does Something After&lt;/span&gt;
-  &lt;/button&gt;
-  </code>
+<code class="language-html">
+&lt;button class="wait staged secondary bg-hcs-blue btn"&gt;
+  &lt;span class="absolute left-0"&gt;
+    &lt;i class="fas fa-spinner fa-pulse"&gt;&lt;/i&gt;
+  &lt;/span&gt;
+  &lt;span&gt;Does Something After&lt;/span&gt;
+&lt;/button&gt;
+</code>
 </pre>
 
 

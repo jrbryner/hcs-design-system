@@ -1,0 +1,23 @@
+aside figure figcaption {
+  top: -0.5rem;
+}
+aside > ul > li {
+  @apply font-bold mb-4;
+}
+
+aside > ul > li ul {
+  @apply font-normal text-hcs-blue-t-80 pl-4 ml-1 mt-2 border-l border-hcs-gray;
+
+  li {
+    @apply mb-4;
+  }
+}
+
+article {
+  @apply mb-32;
+}
+
+pre[class*="language-"] {
+  max-height: 15rem;
+  overflow: auto;
+}

@@ -7,6 +7,7 @@
     mb-2
     mr-4
     {% if include.indeterminate %}indeterminate{% endif %}
+    {% if include.small %}small{% endif %}
   ">
   <input
     type="checkbox"
@@ -26,7 +27,7 @@
       align-middle
     "
   ></span>
-  <sub>
+  <span class="option-label">
   {% if include.label-text %}{{include.label-text}}{% else %}Label{% endif %}
-  </sub>
+  </span>
 </label>

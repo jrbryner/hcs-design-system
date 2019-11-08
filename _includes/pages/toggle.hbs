@@ -1,0 +1,40 @@
+<!-- DEFAULT / PRIMARY -->
+
+<div class="container p-4">
+  <h3>Default</h3>
+  {% include components/toggle/toggle.hbs id="toggle1" %}
+  {% include components/checkbox/checkbox.hbs %}
+</div>
+<div class="container p-4">
+  <h3>Disabled</h3>
+  {% include components/toggle/toggle.hbs id="toggle2" disabled="true" off-label="This is off" on-label="This is on"%}
+  {% include components/toggle/toggle.hbs id="toggle3" disabled="true" checked="true" %}
+</div>
+
+<pre><code class="language-html">
+&lt;label class="hcs-field toggle mb-2 mr-4 inline-flex"&gt;
+  &lt;input
+    class="hidden"
+    type="checkbox"
+    disabled="disabled"
+    checked="checked"
+  /&gt;
+  &lt;span
+    class="
+      relative
+      inline-block
+      outline-none
+      rounded-full
+      cursor-pointer
+      select-none
+      align-middle
+      bg-grey-lightest
+      border-none
+      active:shadow-none
+    "
+  &gt;
+  &lt;/span&gt;
+  &lt;span class="label--off option-label order-first mr-3"&gt;Off&lt;/span&gt;&lt;!-- Optional --&gt;
+  &lt;span class="label--on option-label ml-3"&gt;On&lt;/span&gt;&lt;!-- Optional --&gt;
+&lt;/label&gt;
+</code></pre>
