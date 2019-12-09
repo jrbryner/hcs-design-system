@@ -1,28 +1,24 @@
-.toggle {
+.hcs-toggle {
   --component-width:    2.5rem;
   --dot-width:          1rem;
   --active-text-effect: 0 0 1px currentColor;
 
-  /* The text "labels" */
-  .option-label {
-      @apply text-hcs-blue;
+  /* Using text-shaow vs font-weight so that the rest of the component's position is not affected */
+  .hcs-toggle__label--off {
+      text-shadow: var(--active-text-effect);
+  }
 
-      /* Using text-shaow vs font-weight so that the rest of the component's position is not affected */
-      &.label--off {
-          text-shadow: var(--active-text-effect);
-      }
-
-      &.last-on {
-          text-shadow: none;
-      }
+  .hcs-toggle__label--on {
+      text-shadow: none;
   }
 
   /* Input is hidden
      label is the background of the component
      :after is the dot
      Default is toggle "off */
-  input + span {
+  .hcs-toggle__input + .hcs-toggle__pseudo {
     width:      var(--component-width);
+    height:     1.25rem;
     padding:    2px;
     transition: all .4s ease;
     box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
@@ -49,7 +45,7 @@
   }
 
   /* Toggle "on" */
-  input:checked + span {
+  .hcs-toggle__input:checked + .hcs-toggle__pseudo {
       @apply bg-hcs-blue;
 
       /* Move the dot over */
@@ -68,11 +64,11 @@
 
   /* Disabled
      Default toggle "off" */
-  input:disabled ~ .option-label {
+  .hcs-toggle__input:disabled ~ .hcs-field__option-label {
     @apply text-hcs-gray-t-20;
   }
 
-  input:disabled + span {
+  .hcs-toggle__input:disabled + .hcs-toggle__pseudo {
     @apply bg-ui-light-gray;
 
     &::after {
@@ -82,7 +78,7 @@
 
   /* Disabled
      Toggle "on" */
-  input:checked:disabled + span {
+  .hcs-toggle__input:checked:disabled + .hcs-toggle__pseudo {
     @apply bg-hcs-gray-t-80;
 
     /* Move the dot over */
@@ -91,10 +87,10 @@
     }
 
     /* Swap the highlighted active label text */
-    & ~ .label--off {
+    & ~ .hcs-toggle__label--off {
       text-shadow: none;
     }
-    & ~ .label--on {
+    & ~ .hcs-toggle__label--on {
       text-shadow: var(--active-text-effect);
     }
   }

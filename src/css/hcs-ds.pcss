@@ -1,6 +1,17 @@
 aside figure figcaption {
   top: -0.5rem;
 }
+aside  ul {
+  @apply list-none;
+
+  a {
+    @apply text-white no-underline;
+
+    &:hover {
+      @apply text-hcs-blue-t-80 no-underline;
+    }
+  }
+}
 aside > ul > li {
   @apply font-bold mb-4;
 }
@@ -11,6 +22,7 @@ aside > ul > li ul {
   li {
     @apply mb-4;
   }
+
 }
 
 article {

@@ -4,6 +4,7 @@
 @import '../../_includes/components/button/buttons.pcss';
 @import '../../_includes/components/toggle/toggle.pcss';
 @import '../../_includes/components/checkbox/checkbox.pcss';
+@import '../../_includes/components/radio/radio.pcss';
 
 @tailwind base;
 
@@ -11,26 +12,31 @@
 
 @tailwind utilities;
 
+html {
+  font-size: 16px;
+}
+body {
+  @apply font-body leading-normal text-ui-dark-gray bg-white;
+  font-size: 16px;
+}
 
 strong,
 b {
   font-weight: 600;
 }
 
-.option-label {
-  /* text-hcs-blue */
-  @apply
-    text-ui-contrast-gray
-    inline-block
-    whitespace-no-wrap
-    text-xs
-    text-hcs-gray-t-10
-    uppercase
-    leading-snug
-    bottom-auto
-    align-middle;
+a {
+  @apply text-hcs-blue;
+  transition: all 200ms ease-in-out;
+
+  &:hover {
+    @apply text-hcs-dark-teal;
+  }
 }
 
+ul {
+  @apply mt-2 mb-2 ml-4 list-disc list-outside;
+}
 
 h1,
 h2 {
@@ -44,4 +50,18 @@ h2 {
 }
 h3 {
   @apply font-display leading-normal text-hcs-gray text-xl;
+}
+
+
+.hcs-field__option-label {
+  @apply
+    text-ui-contrast-gray
+    inline-block
+    whitespace-no-wrap
+    text-xs
+    text-hcs-gray-t-10
+    font-normal
+    uppercase
+    leading-snug
+    align-middle;
 }

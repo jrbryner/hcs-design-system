@@ -1,9 +1,9 @@
 <label
   class="
     hcs-field
-    hcs-checkbox
-    {% if include.indeterminate %}hcs-checkbox--indeterminate{% endif %}
-    {% if include.small %}hcs-checkbox--small{% endif %}
+    hcs-radio
+    {% if include.indeterminate %}hcs-radio--indeterminate{% endif %}
+    {% if include.small %}hcs-radio--small{% endif %}
     relative
     inline-block
     mb-2
@@ -12,20 +12,20 @@
     leading-none
   ">
   <input
-    type="checkbox"
-    class="hcs-checkbox__input hidden"
+    type="radio"
+    class="hcs-radio__input hidden"
     {% if include.disabled %}disabled="disabled"{% endif %}
     {% if include.checked %}checked="checked"{% endif %}
-    {% if include.id %}id="{{ include.id }}"{% endif %}
+    {% if include.id %}name="{{ include.id }}"{% endif %}
     value=""
   />
   <span
     class="
-      hcs-checkbox__pseudo
+      hcs-radio__pseudo
       bg-white
       cursor-pointer
       absolute
-      rounded
+      rounded-full
       block
       pointer-events-none
     "

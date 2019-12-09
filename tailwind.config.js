@@ -69,7 +69,7 @@ module.exports = {
         '10': '#757575',
       },
 
-      'hcs-warm-red': '#D2492A',
+      'hcs-warm-red': '#D34222', //'#D2492A',
       'hcs-warm-red-s': {
         '80': '#2a0f08',
         '60': '#541d11',
@@ -124,12 +124,9 @@ module.exports = {
       'ui-bg':            '#FAFAFA',
       'black':            '#000',
       'white':            '#fff',
-      'transparent':      'transparent'
+      'transparent':      'transparent',
     },
     extend: {
-      boxShadow: {
-        outline: '0 0 0 2px rgba(0,82,111,0.5)'
-      },
       borderWidth: {
         '3' : '3px'
       }

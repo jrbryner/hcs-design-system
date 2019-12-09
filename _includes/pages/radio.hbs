@@ -1,0 +1,22 @@
+<!-- DEFAULT / PRIMARY -->
+
+<div class="container p-4">
+  <h3>Default</h3>
+  Regular text
+  {% include components/radio/radio.hbs id="cb1" %}
+  {% include components/radio/radio.hbs id="cb1" %}
+</div>
+<div class="container p-4">
+  <h3>Disabled</h3>
+  {% include components/radio/radio.hbs id="cb2" disabled="disabled" %}
+  {% include components/radio/radio.hbs id="cb2" disabled="disabled" checked="checked" %}
+
+</div>
+
+<div class="container p-4">
+  <h3>Small</h3>
+  {% include components/radio/radio.hbs id="cb3" small="small" %}
+  {% include components/radio/radio.hbs id="cb3" small="small" %}
+</div>
+
+

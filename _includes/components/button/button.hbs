@@ -1,15 +1,16 @@
 <button class="
-  btn
+  hcs-btn
   {{ include.class }}
   {{ include.bg-color }}
   {{ include.bg-hover }}
   {{ include.text-color }}
-  {% if include.stage-value %}staged{% endif %}
-" {% if include.class contains "disabled" %}disabled{% endif %}>
+  {% if include.stage-value %}hcs-btn--toggle{% endif %}"
+  {% if include.id %}id="{{~include.id}}"{% endif %}
+  {% if include.disabled %}disabled="disabled"{% endif %}>
   {% if include.stage-value %}
-  <span class="absolute left-0">
+  <span class="absolute left-0 hcs-btn__alt">
     {{ include.stage-value }}
   </span>
   {% endif %}
-  <span>{{ include.value }}</span>
+  <span class="hcs-btn__default">{{ include.value }}</span>
 </button>

@@ -1,91 +1,189 @@
-.btn {
+.hcs-btn {
+  --primary-color:         theme('colors.hcs-green-s.40');
+  --primary-color-hover:   theme('colors.hcs-green-s.20');
+  --secondary-color:       theme('colors.hcs-dark-teal');
+  --secondary-color-hover: theme('colors.hcs-dark-teal-s.40');
+  --warn-color:            theme('colors.hcs-yellow');
+  --warn-color-hover:      theme('colors.hcs-yellow-s.10');
+  --danger-color:          theme('colors.hcs-warm-red');
+  --danger-color-hover:    theme('colors.hcs-warm-red-s.20');
+  --disabled-color:        theme('colors.hcs-gray-t.40');
+  --default-shadow:        0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  --focus-shadow:          0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0,0,0,.12);
+  --active-shadow:         0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0,0,0,.12);
+
   @apply
     h-8
     pl-6
     pr-6
+    mr-4
+    mb-2
     font-semibold
+    text-sm
+    text-center
+    tracking-wide
+    leading-none
+
     rounded-lg
-    text-base
     relative
     overflow-hidden
+
     text-white
-    bg-hcs-green;
+    ;
+
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-color);
+  box-shadow: var(--default-shadow);
+
   transition: all 200ms ease-in-out;
 
   &:hover {
-    @apply bg-hcs-green-s-20;
+    background-color: var(--primary-color-hover);
+    border-color: var(--primary-color-hover);
   }
 
   &:focus {
-    @apply outline-none shadow-outline;
+    @apply outline-none;
+    box-shadow: var(--focus-shadow);
+
   }
 
-  &.secondary {
-    @apply bg-hcs-dark-teal;
+  &:active {
+    box-shadow: var(--active-shadow);
+  }
 
-    &:hover {
-      @apply bg-hcs-dark-teal-s-40;
+  /* Disabled */
+  &:disabled,
+  &:disabled:hover {
+    background-color: var(--disabled-color);
+    border-color: var(--disabled-color);
+
+    &:focus,
+    &:active {
+      box-shadow:
+        0 3px 1px -2px rgba(0, 0, 0, 0.2),
+        0 2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 1px 5px 0 rgba(0,0,0,.12);
     }
   }
 
-  &.negative {
-    @apply bg-hcs-warm-red;
+  > span {
+    @apply
+      w-full
+      h-full
+
+      align-middle
+      inline-flex
+      items-center
+      justify-center
+    ;
+		transition: all 200ms ease-in-out;
+	}
+
+  &--secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
 
     &:hover {
-      @apply bg-hcs-warm-red-s-20;
+      background-color: var(--secondary-color-hover);
+      border-color: var(--secondary-color-hover);
     }
   }
 
-  &.small {
+  /* Warning */
+  &--warn {
+    background-color: var(--warn-color);
+    border-color: var(--warn-color);
+
+    &:hover {
+      background-color: var(--warn-color-hover);
+      border-color: var(--warn-color-hover);
+    }
+  }
+
+  /* Danger */
+  &--danger {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+
+    &:hover {
+      background-color: var(--danger-color-hover);
+      border-color: var(--danger-color-hover);
+    }
+  }
+
+  /* Small */
+  &--small {
     @apply
       h-6
       pl-4
       pr-4
-      text-sm;
+      text-xs;
+  }
 
-    > span {
-      line-height: 1.5rem;
+  &--toggle &__alt {
+    transform: translateY(-100%);
+  }
+
+  &--toggled {
+    box-shadow:
+      0 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0 8px 10 1px rgba(0, 0, 0, 0.14),
+      0 3px 14px 2px rgba(0,0,0,.12);
+
+    .hcs-btn__alt {
+      transform: translateY(0);
+    }
+
+    .hcs-btn__default {
+      transform: translateY(200%);
     }
   }
 
-  &.disabled,
-  [disabled="*"],
-  :disabled {
-    @apply bg-ui-medium-gray;
+  /* Outlined */
+  &.hcs-btn--outline {
+    @apply bg-white text-hcs-green-s-40;
 
-    &.primary {
-      @apply bg-hcs-green-t-40;
+    box-shadow:
+      0 3px 1px -2px rgba(0, 0, 0, 0.12),
+      0 2px 2px 0 rgba(0, 0, 0, 0.05),
+      0 1px 5px 0 rgba(0,0,0,.12);
+
+    &:hover {
+      @apply bg-white;
     }
 
-    &.secondary {
-      @apply bg-hcs-dark-teal-t-40;
+
+    &.hcs-btn--secondary {
+      @apply text-hcs-dark-teal;
+
+      &:hover {
+        @apply border-hcs-dark-teal-s-40;
+      }
+    }
+
+    &.hcs-btn--warn {
+      @apply text-hcs-yellow;
+
+      &:hover {
+        @apply border-hcs-yellow-s-10;
+      }
+    }
+
+    &.hcs-btn--danger {
+      @apply text-hcs-warm-red;
+
+      &:hover {
+        @apply border-hcs-warm-red-s-20;
+      }
+    }
+
+    &:disabled  {
+      @apply text-hcs-gray-t-20;
+
+      &:hover {
+
+      }
     }
   }
-
-	> span {
-    @apply inline-block w-full h-full leading-loose;
-		transition: all 200ms ease-in-out;
-	}
-}
-
-.btn.staged > span {
-	&:first-child {
-		transform: translateY(-100%);
-	}
-}
-
-.btn.waiting {
-
-	span:first-child {
-		transform: translateY(0);
-	}
-
-	span:last-child {
-		transform: translateY(200%);
-	}
-}
-
-// Demo purposes only
-.btn.wait.waiting {
-  @apply pointer-events-none bg-hcs-dark-teal;
 }

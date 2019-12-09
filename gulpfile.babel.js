@@ -63,7 +63,7 @@ task("processStyles", done => {
   browserSync.notify("Compiling styles...");
 
   return src(rawStylesheet)
-    .pipe(postcss([atimport(), tailwindcss(tailwindConfig), colorFunction(), precss(), cssvariables()]))
+    .pipe(postcss([atimport(), cssvariables(), tailwindcss(tailwindConfig), colorFunction(), precss()]))
     .pipe(gulpif(devBuild, sourcemaps.init()))
     // .pipe(
     //   gulpif(

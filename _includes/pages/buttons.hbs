@@ -1,13 +1,30 @@
 <!-- DEFAULT / PRIMARY -->
+<div class="container p-4">
+  <img src="/assets/img/hcs-btn-dissect.png" alt="Button Dissection" />
+</div>
 
 <div class="container p-4">
   <h3>Default</h3>
   {% include components/button/button.hbs value="Primary" %}
-  {% include components/button/button.hbs value="Secondary" class="secondary" %}
+  {% include components/button/button.hbs value="Secondary" class="hcs-btn--secondary" %}
+  {% include components/button/button.hbs value="Warn" class="hcs-btn--warn" %}
+  {% include components/button/button.hbs value="Danger" class="hcs-btn--danger" %}
+  {% include components/button/button.hbs value="Disabled" disabled="disabled" %}
 
-  {% include components/button/button.hbs value="Disabled" class="disabled" %}
-  {% include components/button/button.hbs value="Disabled" class="disabled primary" %}
-  {% include components/button/button.hbs value="Disabled" class="disabled secondary" %}
+  {% include components/button/button.hbs value="<i class='fas fa-asterisk -ml-2 mr-2'></i> Primary" %}
+  {% include components/button/button.hbs value="Primary <i class='fas fa-asterisk -mr-2 ml-2'></i> " %}
+</div>
+
+<div class="container p-4">
+  <h3>Outline</h3>
+  {% include components/button/button.hbs value="Primary" class="hcs-btn--outline"%}
+  {% include components/button/button.hbs value="Secondary" class="hcs-btn--secondary hcs-btn--outline" %}
+  {% include components/button/button.hbs value="Warn" class="hcs-btn--warn hcs-btn--outline" %}
+  {% include components/button/button.hbs value="Danger" class="hcs-btn--danger hcs-btn--outline" %}
+  {% include components/button/button.hbs value="Disabled" disabled="disabled" class="hcs-btn--outline" %}
+
+  {% include components/button/button.hbs value="<i class='fas fa-asterisk -ml-2 mr-2'></i> Primary" class="hcs-btn--outline" %}
+  {% include components/button/button.hbs value="Primary <i class='fas fa-asterisk -mr-2 ml-2'></i> " class="hcs-btn--outline" %}
 </div>
 
 
@@ -15,12 +32,14 @@
 <div class="container p-4">
   <h3>Small</h3>
 
-  {% include components/button/button.hbs value="Small" class="small" %}
-  {% include components/button/button.hbs value="Secondary" class="secondary small" %}
+  {% include components/button/button.hbs value="Small" class="hcs-btn--small" %}
+  {% include components/button/button.hbs value="Secondary" class="hcs-btn--secondary hcs-btn--small" %}
+  {% include components/button/button.hbs value="Warn" class="hcs-btn--warn hcs-btn--small" %}
+  {% include components/button/button.hbs value="Danger" class="hcs-btn--danger hcs-btn--small" %}
+  {% include components/button/button.hbs value="Disabled" disabled="disabled" class="hcs-btn--small" %}
 
-  {% include components/button/button.hbs value="Disabled" class="disabled small" %}
-  {% include components/button/button.hbs value="Disabled" class="disabled primary small" %}
-  {% include components/button/button.hbs value="Disabled" class="disabled secondary small" %}
+  {% include components/button/button.hbs value="<i class='fas fa-asterisk -ml-2 mr-2'></i> Primary" class="hcs-btn--danger hcs-btn--small" %}
+  {% include components/button/button.hbs value="Primary <i class='fas fa-asterisk -mr-2 ml-2'></i> " class="hcs-btn--warn hcs-btn--small"%}
 </div>
 
 <pre>
@@ -45,7 +64,8 @@
   {% include components/button/button.hbs
     value="Something Wicked This Way Comes"
     stage-value='<i class="fas fa-exclamation-triangle"></i>&nbsp;Are you sure?'
-    class="negative confirm"
+    class="hcs-btn--warn"
+    id="toggle"
   %}
 </div>
 
@@ -69,9 +89,10 @@
 <!-- 2 - STAGE / WAIT -->
 <div class="container p-4">
   {% include components/button/button.hbs
-    value="Does Something After"
+    value="Save"
     stage-value='<i class="fas fa-spinner fa-pulse"></i>'
-    class="secondary wait"
+    class="hcs-btn--secondary"
+    id="wait"
   %}
 </div>
 
@@ -92,13 +113,13 @@
 
 
 <script>
-document.querySelector('button.wait').addEventListener('click', function(e) {
+document.querySelector('#wait').addEventListener('click', function(e) {
 
-  document.querySelector('button.wait').classList.toggle("waiting");
+  document.querySelector('#wait').classList.toggle("hcs-btn--toggled");
 
   setTimeout(
     function() {
-      document.querySelector('button.wait').classList.remove("waiting");
+      document.querySelector('#wait').classList.remove("hcs-btn--toggled");
     }
   , 2000);
 
@@ -106,13 +127,13 @@ document.querySelector('button.wait').addEventListener('click', function(e) {
 
 document.querySelector('button').addEventListener('click', function(e) {
 
-  document.querySelector('button.wait').classList.remove("waiting");
+  document.querySelector('#toggle').classList.remove("hcs-btn--toggled");
 
 });
 
-document.querySelector('button.confirm').addEventListener('click', function(e) {
+document.querySelector('#toggle').addEventListener('click', function(e) {
 
-  document.querySelector('button.confirm').classList.toggle("waiting");
+  document.querySelector('#toggle').classList.toggle("hcs-btn--toggled");
 
 });
 </script>
