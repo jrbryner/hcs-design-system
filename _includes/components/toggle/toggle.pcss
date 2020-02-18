@@ -15,11 +15,11 @@
   /* Using text-shaow vs font-weight so that the rest of the component's position is not affected */
   .hcs-field__option-label--off {
     @apply order-first mr-3 ml-0;
-    text-shadow: var(--active-text-effect);
+    font-weight: 600;
   }
 
   .hcs-field__option-label--on {
-      text-shadow: none;
+    font-weight: normal;
   }
 
   .hcs-toggle__input {
@@ -78,10 +78,10 @@
 
       /* Swap the highlighted active label text */
       & ~ .hcs-field__option-label--off {
-        text-shadow: none;
+        font-weight: normal;
       }
       & ~ .hcs-field__option-label--on {
-        text-shadow: var(--active-text-effect);
+        font-weight: 600;
       }
   }
 
@@ -111,10 +111,10 @@
 
     /* Swap the highlighted active label text */
     & ~ .hcs-field__option-label--off {
-      text-shadow: none;
+      font-weight: normal;
     }
     & ~ .hcs-field__option-label--on {
-      text-shadow: var(--active-text-effect);
+      font-weight: 600;
     }
   }
 }
