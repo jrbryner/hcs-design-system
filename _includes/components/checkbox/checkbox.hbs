@@ -4,12 +4,6 @@
     hcs-checkbox
     {% if include.indeterminate %}hcs-checkbox--indeterminate{% endif %}
     {% if include.small %}hcs-checkbox--small{% endif %}
-    relative
-    inline-block
-    mb-2
-    mr-4
-    align-middle
-    leading-none
   ">
   <input
     type="checkbox"
@@ -19,18 +13,8 @@
     {% if include.id %}id="{{ include.id }}"{% endif %}
     value=""
   />
-  <span
-    class="
-      hcs-checkbox__pseudo
-      bg-white
-      cursor-pointer
-      absolute
-      rounded
-      block
-      pointer-events-none
-    "
-  ></span>
-  <span class="hcs-field__option-label mb-0 cursor-pointer" {% if include.id %}for="{{ include.id }}"{% endif %}>
+  <span class="hcs-checkbox__pseudo"></span>
+  <span class="hcs-field__option-label" {% if include.id %}for="{{ include.id }}"{% endif %}>
   {% if include.label-text %}{{include.label-text}}{% else %}Label{% endif %}
   </span>
 </label>

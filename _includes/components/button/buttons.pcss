@@ -1,6 +1,6 @@
 .hcs-btn {
-  --primary-color:         theme('colors.hcs-green-s.40');
-  --primary-color-hover:   theme('colors.hcs-green-s.20');
+  --primary-color:         theme('colors.hcs-blue');
+  --primary-color-hover:   theme('colors.hcs-blue-s.20');
   --secondary-color:       theme('colors.hcs-dark-teal');
   --secondary-color-hover: theme('colors.hcs-dark-teal-s.40');
   --warn-color:            theme('colors.hcs-yellow');
@@ -8,7 +8,7 @@
   --danger-color:          theme('colors.hcs-warm-red');
   --danger-color-hover:    theme('colors.hcs-warm-red-s.20');
   --disabled-color:        theme('colors.hcs-gray-t.40');
-  --default-shadow:        0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  --default-shadow:        0 2px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 20px 0 rgba(0,0,0,.12);
   --focus-shadow:          0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0,0,0,.12);
   --active-shadow:         0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0,0,0,.12);
 
@@ -128,7 +128,7 @@
   &--toggled {
     box-shadow:
       0 5px 5px -3px rgba(0, 0, 0, 0.2),
-      0 8px 10 1px rgba(0, 0, 0, 0.14),
+      0 8px 10px 1px rgba(0, 0, 0, 0.14),
       0 3px 14px 2px rgba(0,0,0,.12);
 
     .hcs-btn__alt {
@@ -142,7 +142,7 @@
 
   /* Outlined */
   &.hcs-btn--outline {
-    @apply bg-white text-hcs-green-s-40;
+    @apply bg-white text-hcs-blue;
 
     box-shadow:
       0 3px 1px -2px rgba(0, 0, 0, 0.12),
@@ -150,7 +150,7 @@
       0 1px 5px 0 rgba(0,0,0,.12);
 
     &:hover {
-      @apply bg-white;
+      @apply bg-white text-hcs-blue-s-20;
     }
 
 

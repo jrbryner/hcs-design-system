@@ -1,24 +1,11 @@
-<label class="hcs-field hcs-toggle mb-2 mr-4 h-6 inline-flex align-middle">
+<label class="hcs-field hcs-toggle">
   <input
-    class="hidden hcs-toggle__input"
+    class="hcs-toggle__input"
     type="checkbox"
     {% if include.disabled %}disabled="disabled"{% endif %}
     {% if include.checked %}checked="checked"{% endif %}
   />
-  <span
-    class="
-      hcs-toggle__pseudo
-      relative
-      inline-block
-      outline-none
-      rounded-full
-      cursor-pointer
-      select-none
-      align-middle
-      border-none
-      active:shadow-none"
-  >
-  </span>
-  <span class="hcs-checkbox__label-off hcs-field__option-label order-first mr-3 leading-normal text-hcs-blue">{% if include.off-label %}{{include.off-label}}{% else %}Off{% endif %}</span><!-- Optional -->
-  <span class="hcs-checkbox__label-on hcs-field__option-label ml-3 leading-normal text-hcs-blue">{% if include.on-label %}{{include.on-label}}{% else %}On{% endif %}</span><!-- Optional -->
+  <span class="hcs-toggle__pseudo active:shadow-none"></span>
+  <span class="hcs-field__option-label--off hcs-field__option-label">{% if include.off-label %}{{include.off-label}}{% else %}Off{% endif %}</span><!-- Optional -->
+  <span class="hcs-field__option-label--on hcs-field__option-label">{% if include.on-label %}{{include.on-label}}{% else %}On{% endif %}</span><!-- Optional -->
 </label>

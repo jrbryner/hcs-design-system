@@ -3,13 +3,27 @@
   --dot-width:          1rem;
   --active-text-effect: 0 0 1px currentColor;
 
-  /* Using text-shaow vs font-weight so that the rest of the component's position is not affected */
-  .hcs-toggle__label--off {
-      text-shadow: var(--active-text-effect);
+  @apply mb-2 mr-4 h-6
+    inline-flex
+    align-middle
+    items-center;
+
+  .hcs-field__option-label {
+    @apply ml-3 leading-normal text-hcs-blue;
   }
 
-  .hcs-toggle__label--on {
+  /* Using text-shaow vs font-weight so that the rest of the component's position is not affected */
+  .hcs-field__option-label--off {
+    @apply order-first mr-3 ml-0;
+    text-shadow: var(--active-text-effect);
+  }
+
+  .hcs-field__option-label--on {
       text-shadow: none;
+  }
+
+  .hcs-toggle__input {
+    @apply hidden;
   }
 
   /* Input is hidden
@@ -17,6 +31,15 @@
      :after is the dot
      Default is toggle "off */
   .hcs-toggle__input + .hcs-toggle__pseudo {
+    @apply relative
+      inline-block
+      outline-none
+      rounded-full
+      cursor-pointer
+      select-none
+      align-middle
+      border-none;
+
     width:      var(--component-width);
     height:     1.25rem;
     padding:    2px;
@@ -54,10 +77,10 @@
       }
 
       /* Swap the highlighted active label text */
-      & ~ .label--off {
+      & ~ .hcs-field__option-label--off {
         text-shadow: none;
       }
-      & ~ .label--on {
+      & ~ .hcs-field__option-label--on {
         text-shadow: var(--active-text-effect);
       }
   }
@@ -78,7 +101,7 @@
 
   /* Disabled
      Toggle "on" */
-  .hcs-toggle__input:checked:disabled + .hcs-toggle__pseudo {
+  .hcs-toggle__input:checked:disabled + &__pseudo {
     @apply bg-hcs-gray-t-80;
 
     /* Move the dot over */
@@ -87,10 +110,10 @@
     }
 
     /* Swap the highlighted active label text */
-    & ~ .hcs-toggle__label--off {
+    & ~ .hcs-field__option-label--off {
       text-shadow: none;
     }
-    & ~ .hcs-toggle__label--on {
+    & ~ .hcs-field__option-label--on {
       text-shadow: var(--active-text-effect);
     }
   }

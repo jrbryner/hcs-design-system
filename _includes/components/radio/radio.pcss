@@ -1,4 +1,12 @@
 .hcs-radio {
+  @apply relative
+    inline-flex
+    mb-2
+    mr-4
+    align-middle
+    items-center
+    leading-normal;
+
   --component-width: 1.25rem;
   min-height: 1.5rem;
 
@@ -6,6 +14,13 @@
      label is background
      ::after is "check" */
   .hcs-radio__pseudo {
+    @apply bg-white
+      cursor-pointer
+      absolute
+      rounded-full
+      block
+      pointer-events-none;
+
     width: var(--component-width);
     height: var(--component-width);
 
@@ -28,6 +43,7 @@
   }
 
   .hcs-field__option-label {
+    @apply mb-0 cursor-pointer;
     padding-left: calc(var(--component-width) + 0.5rem);
   }
 
@@ -59,21 +75,6 @@
       &::after {
         width: calc(var(--component-width) * .5);
         height: calc(var(--component-width) * .5);
-      }
-    }
-  }
-
-  /* Indeterminate
-     applied by class on container
-     overrides default/checked  */
-  &--indeterminate {
-    .hcs-radio__input + .hcs-radio__pseudo {
-      @apply bg-hcs-blue;
-
-      &::after {
-        @apply border-l-0 h-0 opacity-100;
-        top: 50%;
-        transform: translate(50%, -50%);
       }
     }
   }

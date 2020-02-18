@@ -16,6 +16,7 @@ import cssvariables from "postcss-css-variables";
 
 
 
+
 const rawStylesheet = "src/**/*.pcss";
 const siteRoot = "_site";
 const vendor  = `${siteRoot}/vendor/`;
@@ -65,21 +66,24 @@ task("processStyles", done => {
   return src(rawStylesheet)
     .pipe(postcss([atimport(), cssvariables(), tailwindcss(tailwindConfig), colorFunction(), precss()]))
     .pipe(gulpif(devBuild, sourcemaps.init()))
-    // .pipe(
-    //   gulpif(
-    //     !devBuild,
-    //     new purgecss({
-    //       content: ["_site/**/*.html"],
-    //       extractors: [
-    //         {
-    //           extractor: TailwindExtractor,
-    //           extensions: ["html", "js"]
-    //         }
-    //       ]
-    //     })
-    //   )
-    // )
-    .pipe(gulpif(!devBuild, postcss([autoprefixer(), cssnano()])))
+    .pipe(gulpif(!devBuild, postcss([autoprefixer(), cssnano({
+        discardComments: {removeAll: true}
+      }
+    )])))
+    .pipe(
+      // gulpif(
+      //   !devBuild,
+        new purgecss({
+          content: ["_site/**/*.html"],
+          extractors: [
+            {
+              extractor: TailwindExtractor,
+              extensions: ["html", "js"]
+            }
+          ]
+        })
+      // )
+    )
     .pipe(gulpif(devBuild, sourcemaps.write("")))
     .pipe(rename(function(path) {
       path.extname = ".css";

@@ -4,12 +4,6 @@
     hcs-radio
     {% if include.indeterminate %}hcs-radio--indeterminate{% endif %}
     {% if include.small %}hcs-radio--small{% endif %}
-    relative
-    inline-block
-    mb-2
-    mr-4
-    align-middle
-    leading-none
   ">
   <input
     type="radio"
@@ -19,18 +13,8 @@
     {% if include.id %}name="{{ include.id }}"{% endif %}
     value=""
   />
-  <span
-    class="
-      hcs-radio__pseudo
-      bg-white
-      cursor-pointer
-      absolute
-      rounded-full
-      block
-      pointer-events-none
-    "
-  ></span>
-  <span class="hcs-field__option-label mb-0 cursor-pointer" {% if include.id %}for="{{ include.id }}"{% endif %}>
+  <span class="hcs-radio__pseudo"></span>
+  <span class="hcs-field__option-label" {% if include.id %}for="{{ include.id }}"{% endif %}>
   {% if include.label-text %}{{include.label-text}}{% else %}Label{% endif %}
   </span>
 </label>

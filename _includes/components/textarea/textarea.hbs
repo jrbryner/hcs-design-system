@@ -1,0 +1,13 @@
+<div class="hcs-field hcs-text">
+  <label
+    class="hcs-text__label"
+    {% if include.id %}for="{{ include.id }}"{% endif %}>
+    {% if include.label-text %}{{include.label-text}}{% else %}Label for your input{% endif %}
+  </label>
+  <textarea
+    class="hcs-text__input"
+    rows="10"
+    {% if include.disabled %}disabled="disabled"{% endif %}
+    {% if include.id %}id="{{ include.id }}"{% endif %}
+  /></textarea>
+</div>
