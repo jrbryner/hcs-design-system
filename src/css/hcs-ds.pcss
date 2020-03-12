@@ -8,7 +8,7 @@ aside  ul {
     @apply text-white no-underline;
 
     &:hover {
-      @apply text-hcs-blue-t-80 no-underline;
+      @apply no-underline;
     }
   }
 }
@@ -17,7 +17,7 @@ aside > ul > li {
 }
 
 aside > ul > li ul {
-  @apply font-normal text-hcs-blue-t-80 pl-4 ml-1 mt-2 border-l border-hcs-gray;
+  @apply font-normal pl-4 ml-1 mt-2 border-l;
 
   li {
     @apply mb-4;
@@ -32,4 +32,8 @@ article {
 pre[class*="language-"] {
   max-height: 15rem;
   overflow: auto;
+}
+
+.dont-use {
+  border: 3px solid theme('colors.red.600');
 }

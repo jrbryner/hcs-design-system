@@ -1,16 +1,4 @@
 .hcs-btn {
-  --primary-color:         theme('colors.hcs-blue');
-  --primary-color-hover:   theme('colors.hcs-blue-s.20');
-  --secondary-color:       theme('colors.hcs-dark-teal');
-  --secondary-color-hover: theme('colors.hcs-dark-teal-s.40');
-  --warn-color:            theme('colors.hcs-yellow');
-  --warn-color-hover:      theme('colors.hcs-yellow-s.10');
-  --danger-color:          theme('colors.hcs-warm-red');
-  --danger-color-hover:    theme('colors.hcs-warm-red-s.20');
-  --disabled-color:        theme('colors.hcs-gray-t.40');
-  --default-shadow:        0 2px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 20px 0 rgba(0,0,0,.12);
-  --focus-shadow:          0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0,0,0,.12);
-  --active-shadow:         0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0,0,0,.12);
 
   @apply
     h-8
@@ -28,24 +16,25 @@
     relative
     overflow-hidden
 
-    text-white
+    transition
+    duration-200
+    ease-in-out
     ;
 
-  border: 2px solid var(--primary-color);
-  background-color: var(--primary-color);
-  box-shadow: var(--default-shadow);
-
-  transition: all 200ms ease-in-out;
+    color: var(--primary-color-text);
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    box-shadow: var(--default-shadow);
 
   &:hover {
     background-color: var(--primary-color-hover);
     border-color: var(--primary-color-hover);
+    box-shadow: var(--focus-shadow);
   }
 
   &:focus {
     @apply outline-none;
     box-shadow: var(--focus-shadow);
-
   }
 
   &:active {
@@ -55,15 +44,16 @@
   /* Disabled */
   &:disabled,
   &:disabled:hover {
+    @apply cursor-not-allowed;
+
+    color: var(--disabled-color-text);
     background-color: var(--disabled-color);
     border-color: var(--disabled-color);
+    box-shadow: var(--default-shadow);
 
     &:focus,
     &:active {
-      box-shadow:
-        0 3px 1px -2px rgba(0, 0, 0, 0.2),
-        0 2px 2px 0 rgba(0, 0, 0, 0.14),
-        0 1px 5px 0 rgba(0,0,0,.12);
+      box-shadow: var(--default-shadow);
     }
   }
 
@@ -76,11 +66,15 @@
       inline-flex
       items-center
       justify-center
+
+      transition
+      duration-200
+      ease-in-out
     ;
-		transition: all 200ms ease-in-out;
 	}
 
   &--secondary {
+    color: var(--secondary-color-text);
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
 
@@ -91,18 +85,20 @@
   }
 
   /* Warning */
-  &--warn {
-    background-color: var(--warn-color);
-    border-color: var(--warn-color);
+  &--caution {
+    color: var(--caution-color-text);
+    background-color: var(--caution-color);
+    border-color: var(--caution-color);
 
     &:hover {
-      background-color: var(--warn-color-hover);
-      border-color: var(--warn-color-hover);
+      background-color: var(--caution-color-hover);
+      border-color: var(--caution-color-hover);
     }
   }
 
   /* Danger */
   &--danger {
+    color: var(--danger-color-text);
     background-color: var(--danger-color);
     border-color: var(--danger-color);
 
@@ -119,6 +115,7 @@
       pl-4
       pr-4
       text-xs;
+    line-height: 0.75;
   }
 
   &--toggle &__alt {
@@ -140,50 +137,114 @@
     }
   }
 
-  /* Outlined */
-  &.hcs-btn--outline {
-    @apply bg-white text-hcs-blue;
+  &.hcs-btn--icon {
+    @apply rounded-full w-8 p-0;
 
-    box-shadow:
-      0 3px 1px -2px rgba(0, 0, 0, 0.12),
-      0 2px 2px 0 rgba(0, 0, 0, 0.05),
-      0 1px 5px 0 rgba(0,0,0,.12);
+    &.hcs-btn--small {
+      @apply w-6;
+    }
+  }
+
+  /* Outlined */
+  &.hcs-btn--ghost {
+    @apply bg-white shadow-md;
+    color: var(--primary-color);
 
     &:hover {
-      @apply bg-white text-hcs-blue-s-20;
+      @apply bg-white shadow-lg;
+      color: var(--primary-color-hover);
+    }
+
+    &:focus {
+      box-shadow: var(--focus-shadow);
+    }
+
+    &:active {
+      box-shadow: var(--active-shadow);
     }
 
 
     &.hcs-btn--secondary {
-      @apply text-hcs-dark-teal;
+     color: var(--secondary-color);
 
       &:hover {
-        @apply border-hcs-dark-teal-s-40;
+        color: var(--secondary-color-hover);
+        border-color: var(--secondary-color-hover);
       }
     }
 
-    &.hcs-btn--warn {
-      @apply text-hcs-yellow;
+    &.hcs-btn--caution {
+      color: var(--caution-color);
 
       &:hover {
-        @apply border-hcs-yellow-s-10;
+        color: var(--danger-color-hover);
+        border-color: var(--danger-color-hover);
       }
     }
 
     &.hcs-btn--danger {
-      @apply text-hcs-warm-red;
+      color: var(--danger-color);
 
       &:hover {
-        @apply border-hcs-warm-red-s-20;
+        color: var(--danger-color-hover);
+        border-color: var(--danger-color-hover);
       }
     }
 
     &:disabled  {
-      @apply text-hcs-gray-t-20;
+      color: var(--disabled-color-text);
 
       &:hover {
-
+        @apply shadow-md;
       }
     }
+  }
+
+  &.hcs-btn--text {
+    @apply bg-transparent border-transparent;
+    color: var(--primary-color);
+    box-shadow: none;
+
+    &:hover {
+      @apply bg-transparent;
+      border-color: var(--primary-color-hover);
+      color: var(--primary-color-hover);
+    }
+
+    &.hcs-btn--secondary {
+     color: var(--secondary-color);
+
+      &:hover {
+        color: var(--secondary-color-hover);
+        border-color: var(--secondary-color-hover);
+      }
+    }
+
+    &.hcs-btn--caution {
+      color: var(--caution-color);
+
+      &:hover {
+        color: var(--danger-color-hover);
+        border-color: var(--danger-color-hover);
+      }
+    }
+
+    &.hcs-btn--danger {
+      color: var(--danger-color);
+
+      &:hover {
+        color: var(--danger-color-hover);
+        border-color: var(--danger-color-hover);
+      }
+    }
+
+    &:disabled  {
+      color: var(--disabled-color-text);
+
+      &:hover {
+        @apply bg-transparent border-transparent shadow-none;
+      }
+    }
+
   }
 }

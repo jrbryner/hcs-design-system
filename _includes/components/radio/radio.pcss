@@ -1,4 +1,6 @@
 .hcs-radio {
+  --component-width: 1.25rem;
+
   @apply relative
     inline-flex
     mb-2
@@ -7,7 +9,6 @@
     items-center
     leading-normal;
 
-  --component-width: 1.25rem;
   min-height: 1.5rem;
 
   /* Input is hidden
@@ -19,21 +20,25 @@
       absolute
       rounded-full
       block
-      pointer-events-none;
+      pointer-events-none
+
+      duration-200
+      transition-colors
+      ease-in-out
+      ;
 
     width: var(--component-width);
     height: var(--component-width);
 
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.25);
-    transition: background-color 200ms ease-in-out;
 
     &::after {
       /* Create a check and rotate */
       @apply block opacity-0 bg-white absolute rounded-full;
 
       content: '';
-      width: calc(var(--component-width) * 0.55);
-      height: calc(var(--component-width) * 0.55);
+      width: calc(var(--component-width) * 0.5);
+      height: calc(var(--component-width) * 0.5);
       transition: opacity 100ms ease-in-out;
       top: 50%;
       left: 50%;
@@ -49,7 +54,7 @@
 
   /* Checked */
   .hcs-radio__input:checked + .hcs-radio__pseudo {
-    @apply bg-hcs-blue;
+    background-color: var(--input-control-color);
 
     &::after {
       @apply opacity-100;
@@ -57,11 +62,17 @@
   }
 
   /* Disabled */
+  .hcs-radio__input:disabled ~ .hcs-field__option-label {
+    @apply cursor-not-allowed;
+    color: var(--disabled-color-text);
+  }
+
   .hcs-radio__input:disabled + .hcs-radio__pseudo {
-    @apply bg-ui-light-gray;
+    @apply cursor-not-allowed;
+    background-color: var(--disabled-color);
 
     &::after {
-      @apply border-hcs-gray-t-60;
+      border-color: var(--disabled-color);
     }
   }
 

@@ -2,20 +2,34 @@
   @apply mb-2 mr-4 relative inline-block align-bottom leading-none text-sm;
 
   .hcs-text__label {
-    @apply mb-2 block font-normal font-display cursor-pointer;
+    @apply mb-0 block font-normal font-display cursor-pointer;
+
+    span {
+      @apply block;
+    }
   }
 
   .hcs-text__input {
     @apply
-    pl-4 pr-4
+    mt-2
+    pl-2 pr-2
     bg-white
-    border border-solid border-hcs-gray-t-60 rounded-lg
+    border border-solid rounded-lg
     transition-all duration-300 ease-in-out;
+
+    border-color: var(--border-color);
 
     min-height: 2rem;
 
     &:focus {
-      @apply outline-none border-hcs-blue;
+      @apply outline-none;
+      border-color: var(--secondary-color);
+    }
+
+    &:disabled {
+      @apply cursor-not-allowed;
+      color: var(--disabled-color-text);
+      background-color: var(--disabled-color);
     }
   }
 

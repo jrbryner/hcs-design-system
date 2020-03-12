@@ -6,6 +6,7 @@
 @import '../../_includes/components/checkbox/checkbox.pcss';
 @import '../../_includes/components/radio/radio.pcss';
 @import '../../_includes/components/text-input/text-input.pcss';
+@import '../../_includes/components/message/message.pcss';
 
 @tailwind base;
 
@@ -13,11 +14,50 @@
 
 @tailwind utilities;
 
+:root {
+  --primary-color-text:    theme('colors.white');
+  --primary-color:         theme('colors.blue.700');
+  --primary-color-hover:   theme('colors.blue.800');
+  --primary-color-bg:      theme('colors.blue.200');
+
+  --secondary-color-text:  theme('colors.blue.900');
+  --secondary-color:       theme('colors.blue.500');
+  --secondary-color-hover: theme('colors.blue.400');
+  --secondary-color-bg:    theme('colors.blue.200');
+
+  --success-color-text:    theme('colors.green.800');
+  --success-color:         theme('colors.green.500');
+  --success-color-hover:   theme('colors.green.400');
+  --success-color-bg:      theme('colors.green.200');
+
+  --caution-color-text:    theme('colors.yellow.800');
+  --caution-color:         theme('colors.yellow.500');
+  --caution-color-hover:   theme('colors.yellow.400');
+  --caution-color-bg:      theme('colors.yellow.200');
+
+  --danger-color-text:     theme('colors.white');
+  --danger-color:          theme('colors.red.600');
+  --danger-color-hover:    theme('colors.red.500');
+  --danger-color-bg:       theme('colors.red.200');
+
+  --disabled-color-text:   theme('colors.gray.700');
+  --disabled-color:        theme('colors.gray.400');
+
+  --border-color:          theme('colors.gray.400');
+  --label-color:           theme('colors.gray.700');
+  --input-control-color:   theme('colors.blue.600');
+
+
+  --default-shadow:        0 2px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 20px 0 rgba(0,0,0,.12);
+  --focus-shadow:          0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0,0,0,.12);
+  --active-shadow:         0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0,0,0,.12);
+}
+
 html {
   font-size: 16px;
 }
 body {
-  @apply font-body leading-normal text-ui-dark-gray bg-white;
+  @apply font-body leading-normal text-gray-900 bg-white;
   font-size: 14px;
 }
 
@@ -27,11 +67,11 @@ b {
 }
 
 a {
-  @apply text-hcs-blue;
+  color: var(--primary-color);
   transition: all 200ms ease-in-out;
 
   &:hover {
-    @apply text-hcs-dark-teal;
+    color: var(--primary-color-hover);
   }
 }
 
@@ -41,7 +81,8 @@ ul {
 
 h1,
 h2 {
-  @apply font-display font-normal leading-normal text-hcs-blue;
+  @apply font-display font-normal leading-normal;
+  color: var(--primary-color);
 }
 h1 {
   @apply text-4xl;
@@ -50,19 +91,18 @@ h2 {
   @apply text-2xl;
 }
 h3 {
-  @apply font-display leading-normal text-hcs-gray text-xl;
+  @apply font-display leading-normal text-gray-700 text-xl;
 }
 
 
 .hcs-field__option-label {
   @apply
-    text-ui-contrast-gray
     inline-block
     whitespace-no-wrap
     text-xs
-    text-hcs-gray-t-10
     font-normal
     uppercase
     leading-snug
     align-middle;
+  color: var(--label-color);
 }

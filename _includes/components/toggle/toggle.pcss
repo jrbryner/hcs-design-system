@@ -9,7 +9,8 @@
     items-center;
 
   .hcs-field__option-label {
-    @apply ml-3 leading-normal text-hcs-blue;
+    @apply ml-3 leading-normal;
+    color: var(--primary-color);
   }
 
   /* Using text-shaow vs font-weight so that the rest of the component's position is not affected */
@@ -69,7 +70,7 @@
 
   /* Toggle "on" */
   .hcs-toggle__input:checked + .hcs-toggle__pseudo {
-      @apply bg-hcs-blue;
+      background-color: var(--input-control-color);
 
       /* Move the dot over */
       &::after {
@@ -88,21 +89,23 @@
   /* Disabled
      Default toggle "off" */
   .hcs-toggle__input:disabled ~ .hcs-field__option-label {
-    @apply text-hcs-gray-t-20;
+    @apply cursor-not-allowed;
+    color: var(--disabled-color-text);
   }
 
   .hcs-toggle__input:disabled + .hcs-toggle__pseudo {
-    @apply bg-ui-light-gray;
+    @apply cursor-not-allowed;
+    background-color: var(--disabled-color);
 
     &::after {
-      @apply bg-ui-light-gray;
+      background-color: var(--disabled-color);
     }
   }
 
   /* Disabled
      Toggle "on" */
   .hcs-toggle__input:checked:disabled + &__pseudo {
-    @apply bg-hcs-gray-t-80;
+    background-color: var(--disabled-color);
 
     /* Move the dot over */
     &::after {

@@ -1,0 +1,15 @@
+<div class="hcs-field hcs-text">
+  <label
+    class="hcs-text__label"
+  >
+    <span>
+      {% if include.label-text %}{{include.label-text}}{% else %}Label for your input{% endif %}
+    </span>
+    <input
+      type="text"
+      class="hcs-text__input"
+      {% if include.disabled %}disabled="disabled"{% endif %}
+      value=""
+    />
+  </label>
+</div>

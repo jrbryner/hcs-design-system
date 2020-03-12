@@ -1,30 +1,37 @@
 <!-- DEFAULT / PRIMARY -->
-<div class="container p-4">
+<!-- <div class="container p-4">
   <img src="/assets/img/hcs-btn-dissect.png" alt="Button Dissection" />
-</div>
+</div> -->
 
 <div class="container p-4">
-  <h3>Default</h3>
-  {% include components/button/button.hbs value="Primary" %}
-  {% include components/button/button.hbs value="Secondary" class="hcs-btn--secondary" %}
-  {% include components/button/button.hbs value="Warn" class="hcs-btn--warn" %}
+  <h3>Primary</h3>
+  {% include components/button/button.hbs value="Action" %}
+  {% include components/button/button.hbs value="<i class='fas fa-asterisk -ml-2 mr-2'></i> Action" %}
+  {% include components/button/button.hbs value="Action <i class='fas fa-asterisk -mr-2 ml-2'></i> " %}
+  <br />
+  {% include components/button/button.hbs value="Caution" class="hcs-btn--caution" %}
   {% include components/button/button.hbs value="Danger" class="hcs-btn--danger" %}
   {% include components/button/button.hbs value="Disabled" disabled="disabled" %}
-
-  {% include components/button/button.hbs value="<i class='fas fa-asterisk -ml-2 mr-2'></i> Primary" %}
-  {% include components/button/button.hbs value="Primary <i class='fas fa-asterisk -mr-2 ml-2'></i> " %}
+  {% include components/button/button.hbs value="<i class='fas fa-plus'></i>" class="hcs-btn--icon hcs-btn--secondary" %}
 </div>
 
 <div class="container p-4">
-  <h3>Outline</h3>
-  {% include components/button/button.hbs value="Primary" class="hcs-btn--outline"%}
-  {% include components/button/button.hbs value="Secondary" class="hcs-btn--secondary hcs-btn--outline" %}
-  {% include components/button/button.hbs value="Warn" class="hcs-btn--warn hcs-btn--outline" %}
-  {% include components/button/button.hbs value="Danger" class="hcs-btn--danger hcs-btn--outline" %}
-  {% include components/button/button.hbs value="Disabled" disabled="disabled" class="hcs-btn--outline" %}
+  <h3>Secondary</h3>
+  {% include components/button/button.hbs value="Action" class="hcs-btn--ghost"%}
+  {% include components/button/button.hbs value="<i class='fas fa-asterisk -ml-2 mr-2'></i> Action" class="hcs-btn--ghost" %}
+  {% include components/button/button.hbs value="Action <i class='fas fa-asterisk -mr-2 ml-2'></i> " class="hcs-btn--ghost" %}
+  <br />
+  {% include components/button/button.hbs value="Danger" class="hcs-btn--danger hcs-btn--ghost" %}
+  {% include components/button/button.hbs value="Disabled" disabled="disabled" class="hcs-btn--ghost" %}
+  {% include components/button/button.hbs value="<i class='fas fa-plus'></i>" class="hcs-btn--icon hcs-btn--ghost hcs-btn--secondary" %}
+</div>
 
-  {% include components/button/button.hbs value="<i class='fas fa-asterisk -ml-2 mr-2'></i> Primary" class="hcs-btn--outline" %}
-  {% include components/button/button.hbs value="Primary <i class='fas fa-asterisk -mr-2 ml-2'></i> " class="hcs-btn--outline" %}
+<div class="container p-4">
+  <h3>Tertiary</h3>
+  {% include components/button/button.hbs value="Primary" class="hcs-btn--text"%}
+  {% include components/button/button.hbs value="Danger" class="hcs-btn--danger hcs-btn--text" %}
+  {% include components/button/button.hbs value="Disabled" disabled="disabled" class="hcs-btn--text" %}
+  {% include components/button/button.hbs value="<i class='fas fa-plus'></i>" class="hcs-btn--danger hcs-btn--icon hcs-btn--text" %}
 </div>
 
 
@@ -32,14 +39,14 @@
 <div class="container p-4">
   <h3>Small</h3>
 
-  {% include components/button/button.hbs value="Small" class="hcs-btn--small" %}
-  {% include components/button/button.hbs value="Secondary" class="hcs-btn--secondary hcs-btn--small" %}
-  {% include components/button/button.hbs value="Warn" class="hcs-btn--warn hcs-btn--small" %}
+  {% include components/button/button.hbs value="Action" class="hcs-btn--small" %}
+  {% include components/button/button.hbs value="<i class='fas fa-asterisk -ml-2 mr-2'></i> Action" class=" hcs-btn--small hcs-btn--ghost" %}
+  {% include components/button/button.hbs value="Action <i class='fas fa-asterisk -mr-2 ml-2'></i>" class="hcs-btn--small hcs-btn--text" %}
+  <br />
+  {% include components/button/button.hbs value="Caution" class="hcs-btn--caution hcs-btn--small" %}
   {% include components/button/button.hbs value="Danger" class="hcs-btn--danger hcs-btn--small" %}
   {% include components/button/button.hbs value="Disabled" disabled="disabled" class="hcs-btn--small" %}
-
-  {% include components/button/button.hbs value="<i class='fas fa-asterisk -ml-2 mr-2'></i> Primary" class="hcs-btn--danger hcs-btn--small" %}
-  {% include components/button/button.hbs value="Primary <i class='fas fa-asterisk -mr-2 ml-2'></i> " class="hcs-btn--warn hcs-btn--small"%}
+  {% include components/button/button.hbs value="<i class='fas fa-plus'></i>" class="hcs-btn--secondary hcs-btn--icon hcs-btn--small" %}
 </div>
 
 <!--
@@ -50,66 +57,49 @@
 &lt;/button&gt;
 </code>
 </pre>
-
-
-<pre>
-<code class="language-html">
-&lt;button disabled class="bg-ui-medium-gray btn"&gt;
-    &lt;span&gt;This Button Is Disabled&lt;/span&gt;
-&lt;/button&gt;
-</code>
-</pre>
 -->
+
   <!-- 2 - STAGE / CONFIRM -->
 <div class="container p-4">
+  <h3>Special Use</h3>
+
   {% include components/button/button.hbs
     value="Something Wicked This Way Comes"
     stage-value='<i class="fas fa-exclamation-triangle"></i>&nbsp;Are you sure?'
-    class="hcs-btn--warn"
+    class="hcs-btn--danger"
     id="toggle"
   %}
-</div>
 
-
-<!--
-<pre>
-<code class="language-html">
-&lt;button class="confirm negative staged bg-hcs-warm-red btn"&gt;
-  &lt;span class="absolute left-0"&gt;
-    &lt;i class="fas fa-exclamation-triangle"&gt;&lt;/i&gt;
-    &nbsp;Are you sure?
-  &lt;/span&gt;
-  &lt;span&gt;Something Wicked This Way Comes&lt;/span&gt;
-&lt;/button&gt;
-</code>
-</pre>
--->
-
-
-
-<!-- 2 - STAGE / WAIT -->
-<div class="container p-4">
   {% include components/button/button.hbs
     value="Save"
     stage-value='<i class="fas fa-spinner fa-pulse"></i>'
-    class="hcs-btn--secondary"
+    class="hcs-btn"
     id="wait"
   %}
 </div>
 
-<!--
-<pre>
-<code class="language-html">
-&lt;button class="wait staged secondary bg-hcs-blue btn"&gt;
-  &lt;span class="absolute left-0"&gt;
-    &lt;i class="fas fa-spinner fa-pulse"&gt;&lt;/i&gt;
-  &lt;/span&gt;
-  &lt;span&gt;Does Something After&lt;/span&gt;
-&lt;/button&gt;
-</code>
-</pre>
--->
 
+<div class="container p-4"></div>
+  <div class="max-w-m rounded overflow-hidden shadow-lg">
+
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">Usage Example</div>
+      <p class="text-gray-700 text-base">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+      </p>
+    </div>
+    <div class="px-6 py-4 flex justify-between max-w-lg">
+      <div class="order-last flex self-end">
+        <div class="order-last">{% include components/button/button.hbs value="Do this" %}</div>
+        {% include components/button/button.hbs value="Or this" class="hcs-btn--ghost"%}
+      </div>
+      <div class="order-first flex-grow-0">
+        <div class="order-first">{% include components/button/button.hbs value="Cancel" class="hcs-btn--text"%}</div>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 
 

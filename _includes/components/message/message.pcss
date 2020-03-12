@@ -1,0 +1,30 @@
+.hcs-message {
+
+  @apply
+    p-3
+    rounded-lg
+    border-l-8
+    text-blue-900;
+    ;
+  border-color: var(--primary-color);
+  background-color: var(--primary-color-bg);
+
+  &.hcs-message--success {
+    @apply text-green-800;
+    border-color: var(--success-color);
+    background-color: var(--success-color-bg);
+  }
+
+  &.hcs-message--caution {
+    @apply text-yellow-800;
+    border-color: var(--caution-color);
+    background-color: var(--caution-color-bg);
+  }
+
+  &.hcs-message--danger {
+    @apply text-red-800;
+    border-color: var(--danger-color);
+    background-color: var(--danger-color-bg);
+  }
+
+}

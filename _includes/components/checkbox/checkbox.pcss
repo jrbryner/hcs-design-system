@@ -17,7 +17,7 @@
   .hcs-checkbox__pseudo {
     @apply bg-white
       cursor-pointer
-      relative
+      absolute
       rounded
       block
       pointer-events-none
@@ -66,12 +66,13 @@
   }
 
   .hcs-field__option-label {
-    @apply mb-0 ml-2 cursor-pointer;
+    @apply mb-0 cursor-pointer;
+    padding-left: calc(var(--component-width) + 0.5rem);
   }
 
   /* Checked */
   .hcs-checkbox__input:checked + .hcs-checkbox__pseudo {
-    @apply bg-hcs-blue;
+    background-color: var(--input-control-color);
 
     &::after {
       @apply opacity-100;
@@ -79,11 +80,17 @@
   }
 
   /* Disabled */
+  .hcs-checkbox__input:disabled ~ .hcs-field__option-label {
+    @apply cursor-not-allowed;
+    color: var(--disabled-color-text);
+  }
+
   .hcs-checkbox__input:disabled + .hcs-checkbox__pseudo {
-    @apply bg-ui-light-gray;
+    @apply cursor-not-allowed;
+    background-color: var(--disabled-color);
 
     &::after {
-      @apply border-hcs-gray-t-60;
+      border-color: var(--disabled-color-text);
     }
   }
 
@@ -109,7 +116,7 @@
      overrides default/checked  */
   &--indeterminate {
     .hcs-checkbox__input + .hcs-checkbox__pseudo {
-      @apply bg-hcs-blue;
+      background-color: var(--input-control-color);
 
       &::after {
         @apply border-l-0 h-0 opacity-100 transform translate-x-0 translate-y-0;
